@@ -1,10 +1,8 @@
 import streamlit as st
 
-
 def add_css(verificarEmail):
     with open(verificarEmail) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-
 
 st.set_page_config(
     page_title="Verificar E-mail",
