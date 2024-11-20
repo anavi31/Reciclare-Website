@@ -13,7 +13,7 @@ with open("telaInicial.css") as css_file:
 st.markdown("""
 <header class="header">
     <div class="logo-container">
-        <img src="./imagens/planta.png" class="logo">
+        <img src="https://pbs.twimg.com/media/Gc20Fi4WgAAlUyF?format=png&name=240x240" class="logo">
         <span class="site-name">Reciclare</span>
     </div>
     <div class="header-button-container">
@@ -33,6 +33,7 @@ st.markdown("""
         No Reciclare, você encontra informações e dicas para contribuir com a preservação do meio ambiente.
     </p>
 </div>
-
-<img src="./mascote.png" class="background-image">
+<center>
+<img src="https://pbs.twimg.com/media/Gc20FyZWwAAtRwo?format=png&name=360x360">
+<center>
 """, unsafe_allow_html=True)
