@@ -1,4 +1,21 @@
-/* Estilo do título e labels */
+.css-18e3th9 {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.css-1v3fvcr, footer {
+    visibility: hidden;
+    height: 0;
+}
+
+.st-emotion-cache-12fmjuu {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 3.75rem;
+    visibility: hidden;
+}
+
 h1 {
     font-size: 2.5em;
     color: #333;
@@ -10,24 +27,23 @@ label {
     color: #333;
 }
 
-/* Campo de entrada */
-input[type="text"] {
-    width: 100%;
-    padding: 0.5em;
-    margin: 10px 0;
-    font-size: 1em;
-    border: 1px solid #ddd;
+input {
+    border: 1px solid #ccc;
     border-radius: 5px;
+    padding: 0.6em 0.8em;
+    font-size: 1em;
+    width: 100%;
+    box-shadow: none;
+    outline: none;
 }
 
-/* Botão de confirmar */
 div.stButton > button {
     background-color: #7a9f84;
     color: #fff !important;
     font-size: 1em;
     border: none;
     border-radius: 5px;
-    width: 100%;
+    width: 20%;
     padding: 0.5em 0;
     cursor: pointer;
     text-align: center;
@@ -37,15 +53,18 @@ div.stButton > button:hover {
     background-color: #47664b;
 }
 
-/* Painel direito */
 .right-section {
     background-color: #7a9f84;
-    color: white;
-    font-size: 2.5em;
-    font-weight: bold;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    border-radius: 0 0 0 20px;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: white;
+    border-radius: 0;
 }
