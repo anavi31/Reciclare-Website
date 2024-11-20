@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap');
+
+html, body, [class*="css"] {
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden; /* Desabilita a rolagem */
+    height: 100%;    /* Garante que a página ocupe toda a altura da tela */
+    margin: 0;
+    padding: 0;
+}
+
+.css-18e3th9 {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.css-1v3fvcr, footer {
+    visibility: hidden;
+    height: 0;
+}
+
+.st-emotion-cache-12fmjuu {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 3.75rem;
+    visibility: hidden;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 25px 40px;
+    border-bottom: 1px solid #ddd;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 35px;
+    height: 35px;
+    margin-right: 8px;
+}
+
+.site-name {
+    font-size: 30px;
+    color: #739072;
+    font-weight: 600;
+}
+
+.header-button-container {
+    display: flex;
+    align-items: center;
+}
+
+.header-button-container a {
+    color: white;
+    background-color: #739072;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.header-button-container a:hover {
+    background-color: #5b725b;
+}
+
+.container {
+    max-width: 800px;
+    text-align: left;
+    margin: 70px auto 770px 0px;
+    padding: 0 40px;
+}
+
+.title {
+    font-size: 50px;
+    color: #739072;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.slogan {
+    font-size: 20px;
+    color: #739072;
+    margin-bottom: 15px;
+}
+
+.description {
+    font-size: 25px;
+    color: #739072;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.bicho{
+    margin-right: 800px;
+    margin-left: 50px;
+    margin-bottom: 0px;
+    margin-top: 2px;
+}
