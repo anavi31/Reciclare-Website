@@ -2,10 +2,6 @@
 
 html, body, [class*="css"] {
     font-family: 'Poppins', sans-serif;
-    overflow: hidden; /* Desabilita a rolagem */
-    height: 100%;    /* Garante que a página ocupe toda a altura da tela */
-    margin: 0;
-    padding: 0;
 }
 
 .css-18e3th9 {
@@ -86,28 +82,32 @@ html, body, [class*="css"] {
 }
 
 .title {
-    font-size: 50px;
+    font-size: 3.6em;
     color: #739072;
     font-weight: 600;
     margin-top: 20px;
 }
 
 .slogan {
-    font-size: 20px;
+    font-size: 1.2em;
     color: #739072;
     margin-bottom: 15px;
+
 }
 
 .description {
-    font-size: 25px;
+    font-size: 1.6em;
     color: #739072;
     margin-bottom: 20px;
     font-weight: 300;
 }
 
-.bicho{
-    margin-right: 800px;
-    margin-left: 50px;
-    margin-bottom: 0px;
-    margin-top: 2px;
+.image {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px; 
+    opacity: 0.8; 
+    z-index: 300;
+   
 }
