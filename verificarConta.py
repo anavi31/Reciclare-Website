@@ -17,7 +17,7 @@ col1, col2 = st.columns([2, 3])
 with col1:
     st.markdown("<h1 class='title'>Verificar Conta</h1>", unsafe_allow_html=True)
     st.markdown(
-        "<p class='instruction'>Nós enviaremos um código de 4 dígitos para o seu endereço de e-mail.</p>",
+        "<p class='instruction'>Nós enviamos um código de 4 dígitos para o seu endereço de e-mail.</p>",
         unsafe_allow_html=True,
     )
 
