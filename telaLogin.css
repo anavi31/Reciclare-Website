@@ -34,8 +34,13 @@ h1 {
 }
 
 p {
-    font-size: 1em;
-    color: #0e0d0d;
+    font-size: 1.2em;
+    color: #050505;
+}
+
+h3 {
+    font-size: 1.5em;
+    color: #050505;
 }
 
 input {
@@ -62,19 +67,19 @@ input:focus {
 }
 
 div.stButton > button {
-    background-color: #7a9f84;
-    color: #fff !important;
-    font-size: 1em;
+    background-color: #7a9f84; 
+    color: rgb(72, 131, 155) !important; 
     border: none;
+    padding: 0.6em 0.8em; 
+    font-size: 0.9em;
     border-radius: 5px;
-    width: 100%;
-    padding: 0.5em 0;
     cursor: pointer;
-    text-align: center;
+    width: 100%; 
+    text-align: center; 
 }
 
 div.stButton > button:hover {
-    background-color: #47664b;
+    background-color: #47664b; 
 }
 
 .divider {
@@ -86,13 +91,13 @@ div.stButton > button:hover {
 
 .register {
     text-align: center;
-    font-size: 0.9em;
+    font-size: 1.2em;
     margin-top: 1em;
 }
 
 .register a {
     color: #007bff;
-    text-decoration: none;
+    text-decoration: none; 
 }
 
 .register a:hover {
@@ -112,5 +117,44 @@ div.stButton > button:hover {
     font-size: 2.5em;
     font-weight: bold;
     color: white;
-    border-radius: 0;
+    border-radius: 0; 
+}
+
+/* checkbox preta */
+.st-dg {
+    background-color: #000;
+}
+
+.st-de {
+    border-bottom-color: #000;
+}
+
+.st-dd {
+    border-top-color: #000;
+}
+
+.st-dc {
+    border-right-color: #000;
+}
+
+.st-db {
+    border-left-color: #000;
+}
+
+.stAlert[data-baseweb="alert"] {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+    padding: 1rem;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.stAlert[data-baseweb="alert"][style*="rgb(248, 215, 218)"] {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+    padding: 1rem;
+    border-radius: 5px;
+    font-size: 1em;
 }
