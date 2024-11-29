@@ -1,4 +1,6 @@
 import streamlit as st
+import pandas as pd
+import os
 
 def add_css(inserirCodigo):
     with open(inserirCodigo) as f:
@@ -12,54 +14,50 @@ st.set_page_config(
 
 add_css("inserirCodigo.css")
 
+DB_PATH = "codigos.csv"
+
+def carregar_codigo(email):
+    if not os.path.exists(DB_PATH):
+        return None
+    df = pd.read_csv(DB_PATH)
+    usuario = df[df["email"] == email]
+    if not usuario.empty:
+        return usuario["codigo"].values[0]
+    return None
+
 col1, col2 = st.columns([2, 3])
 
 with col1:
-    st.markdown("<h1>Verificar E-mail</h1>", unsafe_allow_html=True)
-    st.markdown(
-        '<p class="instruction">Nós enviamos um código de 4 dígitos para o seu endereço de e-mail.</p>',
-        unsafe_allow_html=True,
-    )
+    st.markdown("<h1>Inserir Código</h1>", unsafe_allow_html=True)
+    email = st.text_input("Digite seu e-mail para verificar o código", placeholder="Digite seu e-mail")
+    codigo_digitado = st.text_input("Insira o código de confirmação (apenas números)", max_chars=4, type="password", placeholder="0000")
 
-    st.markdown(
-        """
-        <div class="code-inputs">
-            <input type="text" id="digit1" maxlength="1" oninput="moveFocus(1)" onkeydown="validateNumber(event)">
-            <input type="text" id="digit2" maxlength="1" oninput="moveFocus(2)" onkeydown="validateNumber(event)">
-            <input type="text" id="digit3" maxlength="1" oninput="moveFocus(3)" onkeydown="validateNumber(event)">
-            <input type="text" id="digit4" maxlength="1" oninput="moveFocus(4)" onkeydown="validateNumber(event)">
-        </div>
-        <script>
-            function validateNumber(event) {
-                const allowedKeys = ["Backspace", "ArrowLeft", "ArrowRight", "Tab"];
-                if (!/[0-9]/.test(event.key) && !allowedKeys.includes(event.key)) {
-                    event.preventDefault();
-                }
-            }
-
-            function moveFocus(current) {
-                const currentInput = document.getElementById(`digit${current}`);
-                const nextInput = document.getElementById(`digit${current + 1}`);
-                if (currentInput.value && nextInput) {
-                    nextInput.focus();
-                }
-            }
-        </script>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    col_reenviar, col_confirmar = st.columns([1, 1])
-    with col_reenviar:
-        st.button("Reenviar Código")
-    with col_confirmar:
-        if st.button("Confirmar"):
+    if st.button("Confirmar"):
+        codigo_enviado = carregar_codigo(email)
+        if not codigo_enviado:
+            st.error("E-mail não encontrado. Por favor, reinicie o cadastro.")
+        elif codigo_digitado == str(codigo_enviado):
             st.success("Código verificado com sucesso!")
+            st.markdown(f"""
+                    <a href="http://localhost:8501/?page=home" target="_self">
+                        <button style="
+                            background-color: #7a9f84; 
+                            color: white; 
+                            padding: 10px 24px; 
+                            border: none; 
+                            border-radius: 5px; 
+                            cursor: pointer; 
+                            font-size: 16px;
+                            font-family: Arial, sans-serif;
+                            margin-top: 30px;
+                            margin-left: 170px">
+                            Ir para a Tela de Redefinição de Senha
+                        </button>
+                    </a>
+                """, unsafe_allow_html=True)
+        else:
+            st.error("Código incorreto. Tente novamente.")
 
-    st.markdown(
-        '<img src="mascote.png" class="mascote">',
-        unsafe_allow_html=True,
-    )
 
 with col2:
     st.markdown('<div class="right-section">Reciclare</div>',
