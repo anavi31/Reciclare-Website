@@ -28,7 +28,7 @@ def carregar_codigo(email):
 col1, col2 = st.columns([2, 3])
 
 with col1:
-    st.markdown("<h1>Inserir Código</h1>", unsafe_allow_html=True)
+    st.markdown("<h1>Validar Código</h1>", unsafe_allow_html=True)
     email = st.text_input("Digite seu e-mail para verificar o código", placeholder="Digite seu e-mail")
     codigo_digitado = st.text_input("Insira o código de confirmação (apenas números)", max_chars=4, type="password", placeholder="0000")
 
@@ -39,7 +39,7 @@ with col1:
         elif codigo_digitado == str(codigo_enviado):
             st.success("Código verificado com sucesso!")
             st.markdown(f"""
-                    <a href="http://localhost:8501/?page=home" target="_self">
+                    <a href="" target="_self">
                         <button style="
                             background-color: #7a9f84; 
                             color: white; 
@@ -51,12 +51,23 @@ with col1:
                             font-family: Arial, sans-serif;
                             margin-top: 30px;
                             margin-left: 170px">
-                            Ir para a Tela de Redefinição de Senha
+                            Realizar questionário de introdução
                         </button>
                     </a>
                 """, unsafe_allow_html=True)
         else:
             st.error("Código incorreto. Tente novamente.")
+
+    margem_superior = 230 
+    posicao_esquerda = -80  
+
+    st.markdown(
+        f'''
+        <img src="https://pbs.twimg.com/media/GdgsWw2XAAAQosA?format=png&name=360x360" 
+        style="position: relative; top: {margem_superior}px; left: {posicao_esquerda}px; width: 50%;">
+        ''',
+        unsafe_allow_html=True
+    )
 
 
 with col2:

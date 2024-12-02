@@ -120,27 +120,6 @@ div.stButton > button:hover {
     border-radius: 0; 
 }
 
-/* checkbox preta */
-.st-dg {
-    background-color: #000;
-}
-
-.st-de {
-    border-bottom-color: #000;
-}
-
-.st-dd {
-    border-top-color: #000;
-}
-
-.st-dc {
-    border-right-color: #000;
-}
-
-.st-db {
-    border-left-color: #000;
-}
-
 .stAlert[data-baseweb="alert"] {
     background-color: #d4edda;
     border-color: #c3e6cb;
@@ -157,4 +136,24 @@ div.stButton > button:hover {
     padding: 1rem;
     border-radius: 5px;
     font-size: 1em;
+}
+
+.st-de {
+    border-bottom-color: #000;
+}
+
+.st-de {
+    border-top-color: #000;
+}
+
+.st-dc {
+    border-right-color: #000;
+}
+
+.st-db {
+    border-left-color: #000;
+}
+
+.st-dg{
+    background-color: #000;
 }

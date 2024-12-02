@@ -22,7 +22,7 @@ h1 {
 }
 
 label {
-    font-size: 1em;
+    font-size: 1.2em;
     font-weight: bold;
     color: #333;
 }
@@ -35,6 +35,11 @@ input {
     width: 100%;
     box-shadow: none;
     outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: black; 
 }
 
 div.stButton > button {
@@ -67,4 +72,20 @@ div.stButton > button:hover {
     font-weight: bold;
     color: white;
     border-radius: 0;
+}
+
+.st-c2 {
+    border-bottom-color: #000;
+}
+
+.st-c1 {
+    border-top-color: #000;
+}
+
+.st-c0 {
+    border-right-color: #000;
+}
+
+.st-bz {
+    border-left-color: #000;
 }

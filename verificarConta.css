@@ -72,9 +72,10 @@ body {
 }
 
 .instruction {
-    font-size: 16px;
-    color: #5a5a5a;
+    font-size: 18px;
+    color: #000000;
     margin-bottom: 20px;
+    font-weight: 300;
 }
 
 .code-inputs {
@@ -97,7 +98,7 @@ body {
 }
 
 .confirm-button {
-    background-color: #79886b;
+    background-color: #7a9f84;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -107,5 +108,5 @@ body {
 }
 
 .confirm-button:hover {
-    background-color: #5f6f57;
+    background-color: #47664b;
 }

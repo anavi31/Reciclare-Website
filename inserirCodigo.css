@@ -24,8 +24,9 @@ h1 {
 
 .instruction {
     font-size: 1em;
-    color: #333;
+    color: #000000;
     margin-bottom: 1.5em;
+    font-weight: 300;
 }
 
 .code-inputs {
@@ -75,9 +76,18 @@ div.stButton > button:hover {
     color: white;
 }
 
-.mascote {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    width: 60px;
+.st-cc {
+    border-bottom-color: #000 ;
+}
+
+.st-cb {
+    border-top-color: #000 ;
+}
+
+.st-ca {
+    border-right-color: #000 ;
+}
+
+.st-c9 {
+    border-left-color: #000 ;
 }

@@ -1,10 +1,8 @@
 import streamlit as st
 
-# Carregar estilo CSS
 with open("resultados.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-# Layout da página
 st.markdown('<div class="header">Resultados:</div>', unsafe_allow_html=True)
 
 st.markdown("""

@@ -1,23 +1,117 @@
-body {
-    background-color: #f9f9f9;
-    font-family: Arial, sans-serif;
-    color: #4f4f4f;
-    line-height: 1.6;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap');
+
+html, body, [class*="css"] {
+    font-family: 'Poppins', sans-serif;
 }
 
-h1 {
-    text-align: center;
-    color: #5c9561;
+.css-18e3th9 {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.css-1v3fvcr, footer {
+    visibility: hidden;
+    height: 0;
+}
+
+.st-emotion-cache-12fmjuu {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 3.75rem;
+    visibility: hidden;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 25px 40px;
+    border-bottom: 1px solid #ddd;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 35px;
+    height: 35px;
+    margin-right: 8px;
+}
+
+.site-name {
+    font-size: 30px;
+    color: #739072;
+    font-weight: 600;
+}
+
+.header-button-container {
+    display: flex;
+    align-items: center;
+}
+
+.header-button-container a {
+    color: #739072;
+    background-color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.header-button-container a:hover {
+    background-color: #5b725b;
+}
+
+.container {
+    text-align: left;
+    padding: 0 40px;
+}
+
+.slogan {
+    font-size: 1.2em;
+    color: #739072;
+    margin-bottom: 1px;
+    max-width: 670px;
+}
+
+.titulo {
+    font-size: 3.6em;
+    color: #739072;
+    font-weight: 600;
+    margin-top: 1px;
+    max-width: 800px;
+}
+
+.subtitulo {
+    font-size: 3.0em;
+    color: #739072;
+    font-weight: 600;
     margin-top: 30px;
+    margin-bottom: 30px;
+
 }
 
-h2 {
-    color: #5c9561;
-    margin-top: 20px;
+.topicos {
+    font-size: 1.8em;
+    color: #739072;
+    margin-bottom: 20px;
+    font-weight: 600;
 }
 
-p {
-    margin: 20px auto;
-    width: 80%;
-    text-align: justify;
+.texto {
+    font-size: 1.3em;
+    color: #000;
+    margin-bottom: 20px;
 }

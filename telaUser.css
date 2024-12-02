@@ -1,42 +1,149 @@
-/* Estilo para Tela 3 - Perfil */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap');
+
+html, body, [class*="css"] {
+    font-family: 'Poppins', sans-serif;
+}
+
+.css-18e3th9 {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.css-1v3fvcr, footer {
+    visibility: hidden;
+    height: 0;
+}
+
+.st-emotion-cache-12fmjuu {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 3.75rem;
+    visibility: hidden;
 }
 
 .header {
-    font-size: 24px;
-    font-weight: bold;
-    color: #4CAF50;
-    text-align: center;
-    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 25px 40px;
+    border-bottom: 1px solid #ddd;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 35px;
+    height: 35px;
+    margin-right: 8px;
+}
+
+.site-name {
+    font-size: 30px;
+    color: #739072;
+    font-weight: 600;
+}
+
+.header-button-container {
+    display: flex;
+    align-items: center;
+}
+
+.header-button-container a {
+    color: #739072;
+    background-color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.header-button-container a:hover {
+    background-color: #5b725b;
+}
+
+.mensagem-card{
+    margin-top: 30px;
+    margin-right: 300px;
+}
+
+h1{
+    color: #7a9f84;
+    margin-top: 70px;
 }
 
 .card {
-    background-color: white;
-    border: 1px solid #ddd;
+    display: flex;
+    background-color: #e6f4e5;
+    border: 1px solid #739072;
     padding: 20px;
     border-radius: 10px;
-    max-width: 400px;
-    margin: 20px auto;
+    max-width: 800px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    align-items: center;
+}
+
+.card-image {
+    width: 100px;
+    height: 135px;
+    margin-right: 20px;
+}
+
+.card-body {
+    flex: 1;
+    color: #739072;
+}
+
+.card-body strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.card-body p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
 .card-header {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
-    color: #4CAF50;
+    color: #739072;
+    border-bottom: 2px solid #739072;
+    padding-bottom: 5px;
 }
 
-.card-body p {
-    margin: 5px 0;
+.checkbox-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+    margin-right: 3000px;
+}
+
+.checkbox-container label {
+    color: #739072;
     font-size: 16px;
+    font-weight: 500;
 }
 
-/* Botão */
-button {
-    background-color: #4CAF50;
+.button {
+    background-color: #7a9f84;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -47,5 +154,5 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #5b725b;
 }

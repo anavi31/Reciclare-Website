@@ -1,9 +1,10 @@
 import streamlit as st
+import pandas as pd
 import re
 
 st.set_page_config(
     page_title="Reciclare",
-    page_icon="https://pbs.twimg.com/media/GdKDgEnXYAAKJ7o?format=webp&name=tiny",
+    page_icon="planta.png",
     layout="wide"
 )
 
@@ -13,16 +14,26 @@ def add_css(telaLogin):
 
 add_css("telaLogin.css")
 
-database = {
-    "usuario1@email.com": "senha123",
-    "admin@reciclare.com": "admin2024",
-    "contato@site.com": "contato@123",
-    "miguel0205brgg@gmail.com": "miguelSenha"
-}
-
 def is_valid_email(email):
     email_regex = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
     return re.match(email_regex, email) is not None
+
+@st.cache_data
+def load_user_data(file_path):
+    try:
+        data = pd.read_csv(file_path)
+        
+        if all(col in data.columns for col in ["Nome de Usuário", "Email", "Senha", "Bairro"]):
+            data["Senha"] = data["Senha"].astype(str).str.strip()
+            return data.set_index("Email")["Senha"].to_dict()
+        else:
+            st.error("Arquivo CSV não possui as colunas esperadas: 'Nome de Usuário', 'Email', 'Senha' e 'Bairro'.")
+            return {}
+    except Exception as e:
+        st.error(f"Erro ao carregar os dados: {e}")
+        return {}
+
+user_database = load_user_data("dados_usuarios.csv")
 
 col1, col2 = st.columns([2, 3])
 
@@ -31,26 +42,40 @@ with col1:
     st.markdown("<h3>Insira as suas credenciais</h3>", unsafe_allow_html=True)
   
     email = st.text_input("Endereço de email", placeholder="Insira seu endereço de email")
-  
     password = st.text_input("Senha", placeholder="Digite sua senha", type="password")
     
-    st.markdown('<p><a href="#" style="color: #007bff; text-decoration: none; font-size: 0.8em;">Esqueci a senha</a></p>', unsafe_allow_html=True)
-
+    st.markdown('<p><a href="http://localhost:8505/" style="color: #007bff; text-decoration: none; font-size: 0.8em;">Esqueci a senha</a></p>', unsafe_allow_html=True)
     lembrar = st.checkbox("Lembrar-se")
   
-    if st.button("Login"):
+    if st.button("Confirmar"):
         if not email or not password:
             st.error("Por favor, preencha todos os campos.")
         elif not is_valid_email(email):
             st.error("Por favor, insira um email válido.")
-        elif email not in database:
-            st.error("Conta não encontrada. Verifique o email ou inscreva-se.")    
-        elif database[email] != password:
+        elif email not in user_database:
+            st.error("Conta não encontrada. Verifique o email ou inscreva-se.")
+        elif user_database[email] != password.strip():  # Comparação com a senha sem espaços extras
             st.error("Senha inválida.")
         else:
-            st.success("Login realizado com sucesso!")
+            st.success("Credenciais validadas, clique no botão abaixo para se conectar!")
+            st.markdown("""
+                <a href="http://localhost:8510/">
+                    <button style="
+                        background-color: #7a9f84;
+                        color: white;
+                        padding: 10px 24px;
+                        border: 0;
+                        cursor: pointer;
+                        font-size: 16px;
+                        border-radius: 5px;
+                        margin-top: 30px;
+                        margin-left: 277px">
+                        Conectar-se
+                    </button>
+                </a>
+            """, unsafe_allow_html=True)
             
-    st.markdown('<p class="register">Não tem uma conta? <a href="#">Inscrever-se</a></p>', unsafe_allow_html=True)
+    st.markdown('<p class="register">Não tem uma conta? <a href="http://localhost:8505/">Inscrever-se</a></p>', unsafe_allow_html=True)
 
 with col2:
     st.markdown('<div class="right-section">Reciclare</div>', unsafe_allow_html=True)

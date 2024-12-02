@@ -12,7 +12,7 @@ def load_css(telaCadastro):
     with open(telaCadastro) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-load_css("telaCadastro.css")
+load_css("telaCadastro.css") 
 
 def email_valido(email):
     return re.match(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.com$", email) is not None
@@ -47,26 +47,35 @@ Equipe Reciclare
         st.error(f"Erro ao enviar o código: {e}")
         return None
 
-DB_PATH = "dados_usuarios.csv"
+DB_PATH = "codigos.csv"
 
-def salvar_dados_usuario(nome_usuario, email, bairro, senha):
-    # Verifica se o arquivo já existe
+def salvar_codigo(email, codigo):
     if os.path.exists(DB_PATH):
         df = pd.read_csv(DB_PATH)
     else:
+        df = pd.DataFrame(columns=["email", "codigo"])
+
+    novo_codigo = pd.DataFrame([{"email": email, "codigo": int(codigo)}])
+    df = pd.concat([df, novo_codigo], ignore_index=True)
+    df.to_csv(DB_PATH, index=False)
+
+def salvar_dados_usuario(nome_usuario, email, bairro, senha):
+    DB_USUARIOS_PATH = "dados_usuarios.csv"
+    if os.path.exists(DB_USUARIOS_PATH):
+        df = pd.read_csv(DB_USUARIOS_PATH)
+    else:
         df = pd.DataFrame(columns=["Nome de Usuário", "Email", "Bairro", "Senha"])
 
-    # Adiciona os novos dados
     novo_usuario = pd.DataFrame([{
         "Nome de Usuário": nome_usuario,
         "Email": email,
         "Bairro": bairro,
         "Senha": senha
     }])
+    
     df = pd.concat([df, novo_usuario], ignore_index=True)
+    df.to_csv(DB_USUARIOS_PATH, index=False)
 
-    # Salva no arquivo CSV
-    df.to_csv(DB_PATH, index=False)
 
 col1, col2 = st.columns([2, 3])
 
@@ -81,36 +90,43 @@ with col1:
 
     if st.button("Cadastrar-se"):
         if not nome_usuario or not email or not senha or not confirma_senha or bairro == "--Selecionar--":
-            st.error("Por favor, preencha todos os campos.")
+           st.error("Por favor, preencha todos os campos.")
         elif not email_valido(email):
-            st.error("Por favor, insira um e-mail válido.")
+           st.error("Por favor, insira um e-mail válido.")
         elif senha != confirma_senha:
-            st.error("As senhas não coincidem!")
+           st.error("As senhas não coincidem!")
         elif not aceita_termos:
-            st.warning("Você deve aceitar os termos para continuar.")
+           st.warning("Você deve aceitar os termos para continuar.")
         else:
             codigo = enviar_codigo(email, nome_usuario)
             if codigo:
-                salvar_dados_usuario(nome_usuario, email, bairro, senha)
-                st.success("Código enviado e dados salvos! Agora, clique no botão abaixo para ir à tela de verificação.")
-                st.markdown("""
-                    <a href="http://localhost:8502/">
-                        <button style="
-                            background-color: #7a9f84;
-                            color: white;
-                            padding: 10px 24px;
-                            border: 0;
-                            cursor: pointer;
-                            font-size: 16px;
-                            border-radius: 5px;
-                            margin-top: 30px;
-                            margin-left: 170px">
-                            Ir para a Tela de Inserção do Código
-                        </button>
-                    </a>
-                """, unsafe_allow_html=True)
-            else:
-                st.error("Erro ao enviar o código. Tente novamente.")
+             st.session_state["codigo_confirmacao"] = codigo
+             salvar_codigo(email, codigo)
+             salvar_dados_usuario(nome_usuario, email, bairro, senha) 
+             st.session_state["dados_usuario"] = {
+                "Nome de Usuário": nome_usuario,
+                "Email": email,
+                "Bairro": bairro,
+                "Senha": senha,
+              }
+            st.success("Código enviado! Agora, clique no botão abaixo para ir à tela de verificação.")
+            
+            st.markdown("""
+                <a href="http://localhost:8506/">
+                    <button style="
+                        background-color: #7a9f84;
+                        color: white;
+                        padding: 10px 24px;
+                        border: 0;
+                        cursor: pointer;
+                        font-size: 16px;
+                        border-radius: 5px;
+                        margin-top: 30px;
+                        margin-left: 170px">
+                        Ir para a Tela de Inserção do Código
+                    </button>
+                </a>
+            """, unsafe_allow_html=True)
 
 with col2:
     st.markdown('<div class="right-section">Reciclare</div>', unsafe_allow_html=True)

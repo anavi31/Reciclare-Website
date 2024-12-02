@@ -1,42 +1,120 @@
-/* Estilo para Tela 1 - Pergunta */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+.css-18e3th9 {
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
-.header {
+.css-1v3fvcr, footer {
+    visibility: hidden;
+    height: 0;
+}
+
+.st-emotion-cache-12fmjuu {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 3.75rem;
+    visibility: hidden;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+.description {
+    font-size: 13px;
+    color: #666666;
+    left: 100px;
+    margin-top: 0px;
+}
+
+.title {
     font-size: 24px;
     font-weight: bold;
-    color: #4CAF50;
+    color: black;
     text-align: center;
     margin-top: 20px;
 }
 
 .question {
-    font-size: 20px;
+    font-size: 30px;
+    font-weight: bold;
     text-align: center;
-    margin: 20px 0;
+    margin: 30px 0;
 }
 
-/* Radio Buttons */
-.stRadio {
-    justify-content: center;
+.stRadio div {
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 15px;
 }
 
-/* Botão */
-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
+.stRadio div label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 16px;
+    font-weight: bold;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ddd;
     cursor: pointer;
-    display: block;
-    margin: 20px auto;
 }
 
-button:hover {
-    background-color: #45a049;
+.stRadio div label:hover {
+    background-color: #ccc;
+}
+
+.stRadio div label:nth-child(1) { background-color: #739072; }
+.stRadio div label:nth-child(2) { background-color: #F4E1C7; }
+.stRadio div label:nth-child(3) { background-color: #BEC5d1; }
+.stRadio div label:nth-child(4) { background-color: #FFA41B; }
+.stRadio div label:nth-child(5) { background-color: #F62717; }
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #7a9f84;
+    display: flex;
+    align-items: center;
+    left: 0px;
+}
+
+.footer-image {
+    width: 50px;
+    height: 50px;
+    background-color: #ffffff;
+    margin-left: 20px;
+    border-radius: 50%;
+}
+
+/* Adicionando estilos para posicionar a imagem à esquerda */
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Garante que os itens comecem da esquerda */
+}
+
+.container img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 20px; /* Espaço entre a imagem e o texto */
+}
+
+.question-container {
+    flex: 1; /* O texto ocupa o espaço restante */
 }

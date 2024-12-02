@@ -1,13 +1,10 @@
 import streamlit as st
 
-# Configurações gerais
 st.set_page_config(page_title="Ranking de Reciclagem", layout="wide")
 
-# Estilo CSS
 with open("ranking.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-# Conteúdo
 st.markdown("<h1>Pódium Ranking</h1>", unsafe_allow_html=True)
 st.markdown("""
 <div class="ranking">
