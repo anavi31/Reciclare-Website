@@ -23,11 +23,11 @@ def load_user_data(file_path):
     try:
         data = pd.read_csv(file_path)
         
-        if all(col in data.columns for col in ["Nome de Usuário", "Email", "Senha", "Bairro"]):
+        if all(col in data.columns for col in ["Nome de Usuario","Email","Senha","Bairro"]):
             data["Senha"] = data["Senha"].astype(str).str.strip()
             return data.set_index("Email")["Senha"].to_dict()
         else:
-            st.error("Arquivo CSV não possui as colunas esperadas: 'Nome de Usuário', 'Email', 'Senha' e 'Bairro'.")
+            st.error("Arquivo CSV não possui as colunas esperadas: 'Nome de Usuario', 'Email', 'Senha' e 'Bairro'.")
             return {}
     except Exception as e:
         st.error(f"Erro ao carregar os dados: {e}")
@@ -44,7 +44,7 @@ with col1:
     email = st.text_input("Endereço de email", placeholder="Insira seu endereço de email")
     password = st.text_input("Senha", placeholder="Digite sua senha", type="password")
     
-    st.markdown('<p><a href="http://localhost:8505/" style="color: #007bff; text-decoration: none; font-size: 0.8em;">Esqueci a senha</a></p>', unsafe_allow_html=True)
+    st.markdown('<p><a href="http://localhost:8504/" style="color: #007bff; text-decoration: none; font-size: 0.8em;">Esqueci a senha</a></p>', unsafe_allow_html=True)
     lembrar = st.checkbox("Lembrar-se")
   
     if st.button("Confirmar"):
@@ -54,28 +54,30 @@ with col1:
             st.error("Por favor, insira um email válido.")
         elif email not in user_database:
             st.error("Conta não encontrada. Verifique o email ou inscreva-se.")
-        elif user_database[email] != password.strip():  # Comparação com a senha sem espaços extras
+        elif user_database[email] != password.strip():
             st.error("Senha inválida.")
         else:
-            st.success("Credenciais validadas, clique no botão abaixo para se conectar!")
-            st.markdown("""
-                <a href="http://localhost:8510/">
-                    <button style="
-                        background-color: #7a9f84;
-                        color: white;
-                        padding: 10px 24px;
-                        border: 0;
-                        cursor: pointer;
-                        font-size: 16px;
-                        border-radius: 5px;
-                        margin-top: 30px;
-                        margin-left: 277px">
-                        Conectar-se
-                    </button>
-                </a>
-            """, unsafe_allow_html=True)
+            st.session_state["usuario_logado"] = email
+
+            st.success(f"Credenciais validadas, clique no botão abaixo para se conectar!")
+            st.markdown(f"""
+            <a href="http://localhost:8509/?usuario={email}">
+                <button style="
+                    background-color: #7a9f84;
+                    color: white;
+                    padding: 10px 24px;
+                    border: 0;
+                    cursor: pointer;
+                    font-size: 16px;
+                    border-radius: 5px;
+                    margin-top: 30px;
+                    margin-left: 277px">
+                    Conectar-se
+                </button>
+            </a>""", unsafe_allow_html=True)
+
             
-    st.markdown('<p class="register">Não tem uma conta? <a href="http://localhost:8505/">Inscrever-se</a></p>', unsafe_allow_html=True)
+    st.markdown('<p class="register">Não tem uma conta? <a href="http://localhost:8506/">Inscrever-se</a></p>', unsafe_allow_html=True)
 
 with col2:
     st.markdown('<div class="right-section">Reciclare</div>', unsafe_allow_html=True)

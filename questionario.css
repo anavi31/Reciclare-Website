@@ -18,103 +18,94 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #ffffff;
-    margin: 0;
-    padding: 0;
+    background-color: #F6F9F8;
 }
 
-.description {
-    font-size: 13px;
-    color: #666666;
-    left: 100px;
-    margin-top: 0px;
+.cabecalho {
+    text-align: left;
+    font-size: 16px;
+    color: #414141;
+    left: 0;
+    width: 100%;
+}
+
+.footer {
+    background-color: #739072;
+    ;
+    width: 100%;
+    height: 40px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.footer p {
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    margin: 0;
 }
 
 .title {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
-    color: black;
+    color: #333;
     text-align: center;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .question {
-    font-size: 30px;
-    font-weight: bold;
+    font-size: 20px;
+    font-weight: 600;
+    color: #000;
     text-align: center;
-    margin: 30px 0;
+    margin-bottom: 30px;
 }
 
-.stRadio div {
+.radio-container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 15px;
+    margin-bottom: 30px;
 }
 
-.stRadio div label {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: bold;
+.btn-finish {
+    background-color: #4CAF50;
     color: white;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #ddd;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
     cursor: pointer;
+    margin-top: 20px;
 }
 
-.stRadio div label:hover {
-    background-color: #ccc;
+.btn-finish:hover {
+    background-color: #45a049;
 }
 
-.stRadio div label:nth-child(1) { background-color: #739072; }
-.stRadio div label:nth-child(2) { background-color: #F4E1C7; }
-.stRadio div label:nth-child(3) { background-color: #BEC5d1; }
-.stRadio div label:nth-child(4) { background-color: #FFA41B; }
-.stRadio div label:nth-child(5) { background-color: #F62717; }
-
-.footer {
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 25px 40px;
+    border-bottom: 1px solid #ddd;
     position: fixed;
-    bottom: 0;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100px;
-    background-color: #7a9f84;
-    display: flex;
-    align-items: center;
-    left: 0px;
+    z-index: 1000;
+    box-sizing: border-box;
 }
 
-.footer-image {
-    width: 50px;
-    height: 50px;
-    background-color: #ffffff;
-    margin-left: 20px;
-    border-radius: 50%;
+h1{
+    color: #739072;
+    margin-left: 240px;
 }
 
-/* Adicionando estilos para posicionar a imagem à esquerda */
-.container {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin: 20px auto;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* Garante que os itens comecem da esquerda */
-}
-
-.container img {
-    max-width: 100px;
-    height: auto;
-    border-radius: 10px;
-    margin-right: 20px; /* Espaço entre a imagem e o texto */
-}
-
-.question-container {
-    flex: 1; /* O texto ocupa o espaço restante */
+h2{
+    font-size: 25px;
+    font-weight: 200;
 }

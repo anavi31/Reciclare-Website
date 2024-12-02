@@ -1,6 +1,4 @@
-Nome de Usuário,Email,Senha,Bairro
-anavi,raianav31@gmail.com,2356,Sussuarana
-hanayama,sigor2154@gmail.com,102,Cabula
-cookie,biscoito@gmail.com,1708,Sussuarana
-100.0
-100.0
+Nome de Usuario,Email,Senha,Bairro,Tipo,Quantidade
+anavi,raianav31@gmail.com,2356.0,Sussuarana,,
+anavi,raianav31@gmail.com,,Sussuarana,Vidro,2.0
+anavi,raianav31@gmail.com,,Sussuarana,Metais,3.0

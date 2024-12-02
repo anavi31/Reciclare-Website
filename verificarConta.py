@@ -43,7 +43,7 @@ with col1:
         elif codigo_digitado == str(codigo_enviado):
             st.success("Código verificado com sucesso!")
             st.markdown(f"""
-                    <a href="http://localhost:8504/" target="_self">
+                    <a href="http://localhost:8508/" target="_self">
                         <button style="
                             background-color: #7a9f84; 
                             color: white; 

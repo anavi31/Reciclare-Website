@@ -19,7 +19,7 @@ st.markdown("""
     </div>
     <div class="header-button-container">
         <a href="/login">Login</a>
-        <a href="/cadastro">Cadastro</a>
+        <a href="http://localhost:8506/">Cadastro</a>
     </div>
 </header>
 """, unsafe_allow_html=True)

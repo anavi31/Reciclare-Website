@@ -85,7 +85,7 @@ with col1:
                 salvar_codigo("codigos_senha.csv", email, codigo)
                 st.success("Uma mensagem foi enviada ao seu e-mail para a autenticação!")
                 st.markdown("""
-                <a href="http://localhost:8508/">
+                <a href="http://localhost:8507/">
                     <button style="
                         background-color: #7a9f84;
                         color: white;

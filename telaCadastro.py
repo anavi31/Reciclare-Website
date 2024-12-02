@@ -112,7 +112,7 @@ with col1:
             st.success("Código enviado! Agora, clique no botão abaixo para ir à tela de verificação.")
             
             st.markdown("""
-                <a href="http://localhost:8506/">
+                <a href="http://localhost:8501/">
                     <button style="
                         background-color: #7a9f84;
                         color: white;
