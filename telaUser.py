@@ -3,6 +3,9 @@ import pandas as pd
 import csv
 import unicodedata
 
+def normalize_text(text):
+    return unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode('utf-8')
+
 with open("telaUser.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
@@ -19,12 +22,13 @@ if st.session_state["usuario_logado"] is None:
     st.stop()
 
 email_logado = st.session_state["usuario_logado"]
-usuarios = pd.read_csv("dados_usuarios.csv", encoding="latin1")
+usuarios = pd.read_csv("dados_usuarios.csv", encoding="utf-8")
 
 try:
     usuario_info = usuarios.loc[usuarios["Email"] == email_logado].iloc[0]
-    nome_usuario = usuario_info["Nome de Usuario"]
+    nome_usuario = normalize_text(usuario_info["Nome de Usuario"])
     bairro_usuario = usuario_info["Bairro"]
+    ranking_usuario = normalize_text(usuario_info["Ranking"])
 except IndexError:
     st.error("Não foi possível encontrar o nome do usuário. Verifique os dados cadastrados.")
     st.stop()
@@ -38,9 +42,9 @@ st.markdown("""
         <span class="site-name">Reciclare</span>
     </div>
     <div class="header-button-container">
-        <a href="http://localhost:8511/">Infos</a>
-        <a href="http://localhost:8510/">Gráficos</a>
-        <a href="http://localhost:8512/">Ranking</a>
+        <a href="http://localhost:8510/">Infos</a>
+        <a href="http://localhost:8512/">Gráficos</a>
+        <a href="http://localhost:8511/">Ranking</a>
     </div>
 </header>
 """, unsafe_allow_html=True)
@@ -56,6 +60,7 @@ with col1:
                 <p class="card-header">Reciclare</p>
                 <p><strong>Nome:</strong>{nome_usuario}</p>
                 <p><strong>Bairro:</strong>{bairro_usuario}</p>
+                <p><strong>Ranking:</strong>{ranking_usuario}</p>
             </div>
         </div>
     """, unsafe_allow_html=True)
@@ -77,25 +82,27 @@ with col2:
             "Metais": metais,
             "Resíduos Orgânicos": organicos,
         }
+
         if any(qty > 0 for qty in residuos.values()):
             try:
-                df = pd.read_csv("dados_usuarios.csv")
+                df_residuos = pd.read_csv("residuos.csv")
             except FileNotFoundError:
-                df = pd.DataFrame(columns=["Nome de Usuario", "Email", "Bairro", "Tipo", "Quantidade"])
+                df_residuos = pd.DataFrame(columns=["Email", "Tipo de Resíduo", "Quantidade", "Data"])
+
+            data_atual = pd.to_datetime("now").strftime("%Y-%m-%d")
 
             novos_registros = []
             for tipo, quantidade in residuos.items():
                 if quantidade > 0:
                     novos_registros.append({
-                        "Nome de Usuario": nome_usuario,
                         "Email": email_logado,
-                        "Bairro": bairro_usuario,
-                        "Tipo": tipo,
+                        "Tipo de Resíduo": tipo,
                         "Quantidade": quantidade,
+                        "Data": data_atual,
                     })
 
-            df = pd.concat([df, pd.DataFrame(novos_registros)], ignore_index=True)
-            df.to_csv("dados_usuarios.csv", index=False)
+            df_residuos = pd.concat([df_residuos, pd.DataFrame(novos_registros)], ignore_index=True)
+            df_residuos.to_csv("residuos.csv", index=False)
             st.success("Resíduos registrados com sucesso!")
         else:
             st.warning("Por favor, insira a quantidade de pelo menos um tipo de resíduo.")

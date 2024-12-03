@@ -4,9 +4,32 @@ body {
     color: #4f4f4f;
 }
 
+.css-18e3th9 {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.css-1v3fvcr, footer {
+    visibility: hidden;
+    height: 0;
+}
+
+.st-emotion-cache-12fmjuu {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 3.75rem;
+    visibility: hidden;
+}
+
+
 h1, h2 {
     text-align: center;
-    color: #5c9561;
+    color: #739072;
+}
+
+h4 {
+    margin-left: 44%;
 }
 
 .grafico {
@@ -38,4 +61,39 @@ button {
 
 button:hover {
     background-color: #4b7b4d;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 25px 40px;
+    border-bottom: 1px solid #ddd;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.header-button-container {
+    display: flex;
+    align-items: center;
+}
+
+.header-button-container a {
+    color: #739072;
+    background-color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.header-button-container a:hover {
+    background-color: #bad3ba;
 }

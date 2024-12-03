@@ -6,27 +6,23 @@ st.set_page_config(
     layout="wide"
 )
 
-
 with open("telaInicial.css") as css_file:
     st.markdown(f"<style>{css_file.read()}</style>", unsafe_allow_html=True)
-
 
 st.markdown("""
 <header class="header">
     <div class="logo-container">
-        <img src="https://pbs.twimg.com/media/Gc20Fi4WgAAlUyF?format=png&name=240x240" class="logo">
+        <img src="https://pbs.twimg.com/media/GdKDgEnXYAAKJ7o?format=webp&name=tiny" class="logo">
         <span class="site-name">Reciclare</span>
     </div>
     <div class="header-button-container">
-        <a href="/login">Login</a>
-        <a href="http://localhost:8506/">Cadastro</a>
+        <a href="http://localhost:8503/">Login</a>
+        <a href="http://localhost:8502/">Cadastro</a>
     </div>
 </header>
 """, unsafe_allow_html=True)
 
-
 col1, col2 = st.columns([7,3])
-
 
 with col1:
     st.markdown("""
@@ -41,10 +37,9 @@ with col1:
     </div>
     """, unsafe_allow_html=True)
 
-
 with col2:
     st.markdown("""
     <center>
-        <img src="https://pbs.twimg.com/media/Gc20FyZWwAAtRwo?format=png&name=360x360" class="image">
+        <img src="https://pbs.twimg.com/media/GdgsWw2XAAAQosA?format=png&name=360x360" class="image">
     </center>
     """, unsafe_allow_html=True)

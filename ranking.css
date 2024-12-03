@@ -1,11 +1,60 @@
-body {
-    background-color: #f9f9f9;
-    font-family: Arial, sans-serif;
+html, body, [class*="css"] {
+    font-family: 'Poppins', sans-serif;
+}
+    
+.css-18e3th9 {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+    
+.css-1v3fvcr, footer {
+    visibility: hidden;
+    height: 0;
+}
+    
+.st-emotion-cache-12fmjuu {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 3.75rem;
+    visibility: hidden;
+}
+    
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 25px 40px;
+    border-bottom: 1px solid #ddd;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+    
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+    
+.logo {
+    width: 35px;
+    height: 35px;
+    margin-right: 8px;
+}
+    
+.site-name {
+    font-size: 30px;
+    color: #739072;
+    font-weight: 600;
 }
 
 h1 {
     text-align: center;
-    color: #5c9561;
+    color: #739072;
 }
 
 .ranking {
@@ -16,29 +65,48 @@ h1 {
 
 .podium {
     display: flex;
+    justify-content: center;
     align-items: flex-end;
     gap: 20px;
+    margin-top: 130px;
 }
 
-.podium div {
+.first, .second, .third {
     text-align: center;
-    background-color: #e8f5e9;
     padding: 10px;
     border-radius: 10px;
-    color: #4f4f4f;
+    background-color: #739072;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .first {
-    order: -1;
-    font-weight: bold;
-    color: #5c9561;
+    height: 300px;
+    order: 1;
+    color: #ffffff;
+}
+
+.second {
+    height: 250px;
+    order: 0;
+    color: #ffffff;
+}
+
+.third {
+    height: 220px;
+    order: 2;
+    color: #ffffff;
+}
+
+.medal {
+    font-size: 30px;
+    margin-bottom: 10px;
 }
 
 .list {
     width: 40%;
 }
 
-table {
+.table {
     width: 100%;
     border-collapse: collapse;
     text-align: center;
@@ -50,6 +118,58 @@ th, td {
 }
 
 th {
-    background-color: #5c9561;
+    background-color: #739072;
     color: white;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 25px 40px;
+    border-bottom: 1px solid #ddd;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.header-button-container {
+    display: flex;
+    align-items: center;
+}
+
+.header-button-container a {
+    color: #739072;
+    background-color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.header-button-container a:hover {
+    background-color: #bad3ba;
+}
+
+.footer {
+    background-color: #739072;
+    ;
+    width: 100%;
+    height: 90px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.footer p {
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    margin: 0;
 }

@@ -71,7 +71,7 @@ html, body, [class*="css"] {
 }
 
 .header-button-container a:hover {
-    background-color: #5b725b;
+    background-color: #bad3ba;
 }
 
 h1{
@@ -104,7 +104,7 @@ h1{
 
 .card-image {
     width: 30%;
-    margin-right: 20px;
+    margin-right: 25px;
 }
 
 .card-body {
@@ -122,7 +122,7 @@ h1{
 .card-body p {
     margin: 0;
     font-size: 25px;
-    line-height: 1.5;
+    line-height: 1.25;
 }
 
 .card-header {

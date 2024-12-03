@@ -40,15 +40,46 @@ with col1:
                 sucesso, mensagem = atualizar_senha_csv(usuario, nova_senha, 'dados_usuarios.csv')
                 if sucesso:
                     st.success(mensagem)
+                    
+                    st.markdown(f"""
+                    <a href="http://localhost:8503/" target="_self">
+                        <button style="
+                            background-color: #7a9f84; 
+                            color: white; 
+                            padding: 10px 24px; 
+                            border: none; 
+                            border-radius: 5px; 
+                            cursor: pointer; 
+                            font-size: 16px;
+                            font-family: Arial, sans-serif;
+                            margin-top: 30px;
+                            margin-left: 170px">
+                            Faça login novamente
+                        </button>
+                    </a>
+                """, unsafe_allow_html=True)
+                    
                 else:
                     st.error(mensagem)
             else:
                 st.error("As senhas não coincidem. Por favor, tente novamente.")
         else:
             st.warning("Preencha todos os campos.")
+            
+    margem_superior = 230 
+    posicao_esquerda = -80  
+
+    st.markdown(
+        f'''
+        <img src="https://pbs.twimg.com/media/GdgsWw2XAAAQosA?format=png&name=360x360" 
+        style="position: relative; top: 90px; left: {posicao_esquerda}px; width: 330px;">
+        ''',
+        unsafe_allow_html=True
+    )
+                      
 
 with col2:
-    st.markdown('<img src="https://pbs.twimg.com/media/GdgsWw2XAAAQosA?format=png&name=360x360" class="mascote">', unsafe_allow_html=True)
+    
     st.markdown('</div>', unsafe_allow_html=True)
     st.markdown('<div class="right-section">Reciclare</div>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)

@@ -56,7 +56,9 @@ input {
 input:focus {
     border-color: #7a9f84;
     box-shadow: 0 0 5px rgba(90, 122, 100, 0.3);
-}.forgot-password a {
+}
+
+.forgot-password a {
     color: #007bff;
     text-decoration: none; 
     font-size: 0.9em;

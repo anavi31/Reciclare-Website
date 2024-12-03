@@ -1,7 +1,8 @@
 import csv
 import streamlit as st
+import pandas as pd
 
-st.set_page_config(page_title="Questionário dos Hábitos de escarte", page_icon="🌱", layout="centered")
+st.set_page_config(page_title="Questionário dos Hábitos de descarte", page_icon="🌱", layout="centered")
 
 def load_css_from_file(questionario):
     with open(questionario) as f:
@@ -24,15 +25,30 @@ perguntas = [
 
 opcoes = ["Sim", "Um pouco", "Não sei dizer", "Não muito", "Não"]
 
+if "usuario" not in st.session_state:
+    usuario = st.text_input("Por favor, insira seu nome de usuário:")
+    if usuario:
+        st.session_state.usuario = usuario
+    else:
+        st.stop()
+
 if "pagina_atual" not in st.session_state:
     st.session_state.pagina_atual = 0
     st.session_state.respostas = []
 
 pagina = st.session_state.pagina_atual
 
-st.markdown('<div class="cabecalho">Responda um pequeno questionário sobre seus atuais hábitos de descarte para que possamos personalizar sua experiência.</div>', unsafe_allow_html=True)
+def atualizar_ranking(usuario, ranking):
+    df = pd.read_csv('dados_usuarios.csv')
+    
+    if usuario in df['Nome de Usuario'].values:
+        df.loc[df['Nome de Usuario'] == usuario, 'Ranking'] = ranking
+        df.to_csv('dados_usuarios.csv', index=False)
+        st.success(f"Ranking '{ranking}' salvo para o usuário {usuario}!")
+    else:
+        st.error("Usuário não encontrado. Por favor, verifique o nome.")
 
-st.markdown('<div class="footer"><p>Reciclare - Todos os direitos reservados</p></div>', unsafe_allow_html=True)
+st.markdown('<div class="footer"></div>', unsafe_allow_html=True)
 
 if pagina < len(perguntas):
     st.markdown(f'<div class="title">Pergunta {pagina + 1} de {len(perguntas)}</div>', unsafe_allow_html=True)
@@ -70,7 +86,7 @@ else:
         </div>
     </header>
     """, unsafe_allow_html=True)
-    
+
     st.markdown(f"""
     <h1>Resultados</h1>
     <div class="texto">
@@ -81,8 +97,11 @@ else:
     </div>
     """, unsafe_allow_html=True)
 
+    if "usuario" in st.session_state:
+        atualizar_ranking(st.session_state.usuario, ranking)
+
     st.markdown("""
-                <a href="http://localhost:8506/">
+                <a href="http://localhost:8503/">
                     <button style="
                         background-color: #7a9f84;
                         color: white;

@@ -31,9 +31,8 @@ body {
 
 .footer {
     background-color: #739072;
-    ;
     width: 100%;
-    height: 40px;
+    height: 90px;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -47,7 +46,7 @@ body {
 }
 
 .title {
-    font-size: 22px;
+    font-size: 25px;
     font-weight: bold;
     color: #333;
     text-align: center;
@@ -55,7 +54,7 @@ body {
 }
 
 .question {
-    font-size: 20px;
+    font-size: 35px;
     font-weight: 600;
     color: #000;
     text-align: center;
@@ -64,7 +63,7 @@ body {
 
 .radio-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     margin-bottom: 30px;
 }
 
@@ -103,9 +102,29 @@ body {
 h1{
     color: #739072;
     margin-left: 240px;
+    font-size: 50px;
 }
 
 h2{
     font-size: 25px;
     font-weight: 200;
+}
+
+p{
+    font-size: 25px;
+}
+
+div.stButton > button{
+    margin-left: 296px;
+    background-color: #58775c;
+    color: rgb(255, 255, 255);
+    margin-top: 320px;
+}
+
+div.stButton > button:hover {
+    background-color: #344937;
+}
+
+.st-cn {
+    background-color: rgb(0, 0, 0);
 }

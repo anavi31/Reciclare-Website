@@ -44,7 +44,7 @@ with col1:
     email = st.text_input("Endereço de email", placeholder="Insira seu endereço de email")
     password = st.text_input("Senha", placeholder="Digite sua senha", type="password")
     
-    st.markdown('<p><a href="http://localhost:8504/" style="color: #007bff; text-decoration: none; font-size: 0.8em;">Esqueci a senha</a></p>', unsafe_allow_html=True)
+    st.markdown('<p><a href="http://localhost:8506/" style="color: #007bff; text-decoration: none; font-size: 0.8em;">Esqueci a senha</a></p>', unsafe_allow_html=True)
     lembrar = st.checkbox("Lembrar-se")
   
     if st.button("Confirmar"):
