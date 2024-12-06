@@ -23,11 +23,11 @@ def load_user_data(file_path):
     try:
         data = pd.read_csv(file_path)
         
-        if all(col in data.columns for col in ["Nome de Usuario","Email","Senha","Bairro"]):
+        if all(col in data.columns for col in ["Nome de Usuário","Email","Senha","Bairro"]):
             data["Senha"] = data["Senha"].astype(str).str.strip()
             return data.set_index("Email")["Senha"].to_dict()
         else:
-            st.error("Arquivo CSV não possui as colunas esperadas: 'Nome de Usuario', 'Email', 'Senha' e 'Bairro'.")
+            st.error("Arquivo CSV não possui as colunas esperadas: 'Nome de Usuário', 'Email', 'Senha' e 'Bairro'.")
             return {}
     except Exception as e:
         st.error(f"Erro ao carregar os dados: {e}")
@@ -77,7 +77,7 @@ with col1:
             </a>""", unsafe_allow_html=True)
 
             
-    st.markdown('<p class="register">Não tem uma conta? <a href="http://localhost:8506/">Inscrever-se</a></p>', unsafe_allow_html=True)
+    st.markdown('<p class="register">Não tem uma conta? <a href="http://localhost:8502/">Inscrever-se</a></p>', unsafe_allow_html=True)
 
 with col2:
     st.markdown('<div class="right-section">Reciclare</div>', unsafe_allow_html=True)

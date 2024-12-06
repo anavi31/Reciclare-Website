@@ -26,7 +26,7 @@ usuarios = pd.read_csv("dados_usuarios.csv", encoding="utf-8")
 
 try:
     usuario_info = usuarios.loc[usuarios["Email"] == email_logado].iloc[0]
-    nome_usuario = normalize_text(usuario_info["Nome de Usuario"])
+    nome_usuario = normalize_text(usuario_info["Nome de Usuário"])
     bairro_usuario = usuario_info["Bairro"]
     ranking_usuario = normalize_text(usuario_info["Ranking"])
 except IndexError:
@@ -42,7 +42,7 @@ st.markdown("""
         <span class="site-name">Reciclare</span>
     </div>
     <div class="header-button-container">
-        <a href="http://localhost:8510/">Infos</a>
+        <a href="http://localhost:8510/">Informações Sobre Reciclagem</a>
         <a href="http://localhost:8512/">Gráficos</a>
         <a href="http://localhost:8511/">Ranking</a>
     </div>

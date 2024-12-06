@@ -16,9 +16,9 @@ st.markdown("""
         <span class="site-name">Reciclare</span>
     </div>
     <div class="header-button-container">
-        <a href="">Tela Inicial</a>
-        <a href="">Gráficos</a>
-        <a href="">Ranking</a>
+        <a href="http://localhost:8509/?usuario={email}">Tela Inicial</a>
+        <a href="http://localhost:8512/">Gráficos</a>
+        <a href="http://localhost:8511/">Ranking</a>
     </div>
 </header>
 """, unsafe_allow_html=True)

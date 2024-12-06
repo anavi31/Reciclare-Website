@@ -41,8 +41,8 @@ pagina = st.session_state.pagina_atual
 def atualizar_ranking(usuario, ranking):
     df = pd.read_csv('dados_usuarios.csv')
     
-    if usuario in df['Nome de Usuario'].values:
-        df.loc[df['Nome de Usuario'] == usuario, 'Ranking'] = ranking
+    if usuario in df['Nome de Usuário'].values:
+        df.loc[df['Nome de Usuário'] == usuario, 'Ranking'] = ranking
         df.to_csv('dados_usuarios.csv', index=False)
         st.success(f"Ranking '{ranking}' salvo para o usuário {usuario}!")
     else:

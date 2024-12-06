@@ -13,9 +13,9 @@ st.markdown("""
         <span class="site-name">Reciclare</span>
     </div>
     <div class="header-button-container">
-        <a href=""></a>
-        <a href="">Gráficos</a>
-        <a href="http://localhost:8510/">Informações</a>
+        <a href="http://localhost:8509/?usuario={email}">Tela Inicial</a>
+        <a href="http://localhost:8512/">Gráficos</a>
+        <a href="http://localhost:8510/">Informações Sobre Reciclagem</a>
     </div>
 </header>
 """, unsafe_allow_html=True)
@@ -32,12 +32,13 @@ ranking = residuos_somados.sort_values("Quantidade", ascending=False)
 
 st.markdown('<div class="footer"></div>', unsafe_allow_html=True)
 
+st.markdown(f"""<h1>Ranking de Reciclinhos</h1>""",unsafe_allow_html=True,)
 
 col1, col2 = st.columns([1,1])
 
 with col1:
 
-    top_3 = dados_usuarios_totais.nlargest(3, "Quantidade")[["Nome de Usuario", "Quantidade"]]
+    top_3 = dados_usuarios_totais.nlargest(3, "Quantidade")[["Nome de Usuário", "Quantidade"]]
     top_3.columns = ["Usuario", "Reciclados"]
     top_3 = top_3.to_dict(orient="records")
 
@@ -64,13 +65,13 @@ with col1:
         unsafe_allow_html=True,
     )
 
-    margem_superior = 100 
+    margem_superior = -40 
     posicao_esquerda = -80  
 
     st.markdown(
         f'''
         <img src="https://pbs.twimg.com/media/GdgsWw2XAAAQosA?format=png&name=360x360" 
-        style="position: relative; top: {margem_superior}px; left: {posicao_esquerda}px; width: 25%;">
+        style="position: relative; margin-top: {margem_superior}px; left: {posicao_esquerda}px; width: 25%;">
         ''',
         unsafe_allow_html=True
     )
@@ -82,7 +83,7 @@ with col2:
         outros_participantes = outros_participantes.reset_index(drop=True)
         outros_participantes.index = outros_participantes.index + 4
 
-        tabela_formatada = outros_participantes[["Nome de Usuario", "Quantidade"]]
+        tabela_formatada = outros_participantes[["Nome de Usuário", "Quantidade"]]
         tabela_formatada.columns = ["Usuário", "Resíduos Reciclados"]
 
         st.markdown(
