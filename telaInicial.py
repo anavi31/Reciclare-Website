@@ -16,8 +16,10 @@ st.markdown("""
         <span class="site-name">Reciclare</span>
     </div>
     <div class="header-button-container">
-        <a href="http://localhost:8503/">Login</a>
-        <a href="http://localhost:8502/">Cadastro</a>
+        <a href="st.button("https://Reciclare_Website.render.com/login")
+">Login</a>
+        <a href="href="https://Reciclare_Website.com/cadastro")
+">Cadastro</a>
     </div>
 </header>
 """, unsafe_allow_html=True)
