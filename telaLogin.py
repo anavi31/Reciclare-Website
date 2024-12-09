@@ -77,7 +77,7 @@ with col1:
             </a>""", unsafe_allow_html=True)
 
             
-    st.markdown('<p class="register">Não tem uma conta? <a href="http://localhost:8502/">Inscrever-se</a></p>', unsafe_allow_html=True)
+    st.markdown('<p class="register">Não tem uma conta? <a href="http://localhost:8503/">Inscrever-se</a></p>', unsafe_allow_html=True)
 
 with col2:
     st.markdown('<div class="right-section">Reciclare</div>', unsafe_allow_html=True)

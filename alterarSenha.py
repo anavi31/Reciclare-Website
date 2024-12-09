@@ -42,7 +42,7 @@ with col1:
                     st.success(mensagem)
                     
                     st.markdown(f"""
-                    <a href="http://localhost:8503/" target="_self">
+                    <a href="http://localhost:8502/" target="_self">
                         <button style="
                             background-color: #7a9f84; 
                             color: white; 

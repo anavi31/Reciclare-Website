@@ -101,7 +101,7 @@ else:
         atualizar_ranking(st.session_state.usuario, ranking)
 
     st.markdown("""
-                <a href="http://localhost:8503/">
+                <a href="http://localhost:8502/">
                     <button style="
                         background-color: #7a9f84;
                         color: white;
